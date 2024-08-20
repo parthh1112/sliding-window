@@ -35,3 +35,42 @@ public:
         return ans;
     }
 };
+
+
+
+or 
+
+
+
+
+
+class Solution{
+  public:
+    int longestKSubstr(string s, int k) {
+        if(k == 26)return s.size();
+        bool chk = 1;
+        int ans = -1, i = 0, j = 0, n = s.size();
+        map<char,int> m;
+        while(i < n){
+            m[s[i]]++;
+            if(m.size() > k){
+                chk = 0;
+                int l = i - j;
+                while(l--){
+                    m[s[j]]--;
+                    if(m[s[j]] == 0){
+                        m.erase(s[j++]);
+                        break;
+                    }
+                    j++;
+                }
+                
+            }
+            ans = max(ans,i - j + 1);
+            i++;
+        }
+        if(chk)return -1;
+        
+        return ans;
+    }
+};
