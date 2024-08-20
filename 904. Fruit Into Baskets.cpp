@@ -25,3 +25,37 @@ public:
         return ans;
     }
 };
+
+
+
+
+or 
+
+
+
+
+
+class Solution {
+public:
+    int totalFruit(vector<int>& v) {
+        int ans = 0, i = 0, j = 0, n = v.size();
+        map<int,int> m;
+        while(i < n){
+            m[v[i]]++;
+            if(m.size() > 2){
+                int l = i - j;
+                while(l-- && m.size() != 2){
+                    m[v[j]]--;
+                    if(m[v[j]] == 0){ 
+                        m.erase(v[j++]);
+                        break;
+                    }
+                    j++;
+                }
+            } 
+            ans = max(ans,i - j + 1); 
+            i++;
+        }
+        return ans;        
+    }
+};
