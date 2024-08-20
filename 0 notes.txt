@@ -1,0 +1,5 @@
+In sliding window we have 4 type of pattens generally 
+1 => Window size is same 
+2 => Longest subarray where - some condition (max question are from here)
+3 => number of subarray where - some condition 
+4 => finding the shortest window where - some condition
